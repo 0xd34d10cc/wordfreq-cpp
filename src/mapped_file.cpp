@@ -39,7 +39,7 @@ std::error_code MappedFile::open(const char* path) noexcept  {
     return std::error_code(errno, std::system_category());
   }
 
-  struct stat stats = { 0 };
+  struct stat stats;
   if (::fstat(fd, &stats) < 0) {
     ::close(fd);
     return std::error_code(errno, std::system_category());

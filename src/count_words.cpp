@@ -6,14 +6,13 @@
 // 3rd-party libraries
 #include "robin_hood.hpp"
 
-
 #define LIKELY(expr) __builtin_expect((expr), 1)
 #define UNLIKELY(expr) __builtin_expect((expr), 0)
 
 static const std::uint32_t FNV32_INIT = 0x811c9dc5u;
 
 static bool is_alpha(char c) {
-  return 'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z';
+  return ('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z');
 }
 
 // precondition: is_alpha(c)
