@@ -33,8 +33,7 @@ bool MappedFile::is_open() const noexcept {
 }
 
 std::error_code MappedFile::open(const char* path) noexcept  {
-  const int flags = 0;
-  int fd = ::open(path, flags);
+  int fd = ::open(path, O_RDONLY);
   if (fd < 0) {
     return std::error_code(errno, std::system_category());
   }
